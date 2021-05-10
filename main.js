@@ -31,6 +31,7 @@ app.use(session({
 	saveUninitialized: true	
 }))
 
+app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(passport.session());
 

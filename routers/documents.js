@@ -42,9 +42,9 @@ router.post('/',(req, res)=>{
 
 //글 목록보기
 router.get('/lists',(req,res)=>{
-
-	queryData = "SELECT title, writer FROM doc_info";
-	db.query(queryData, (err, rows)=>{
+	var nickname = req.user;
+	queryData = "SELECT title,docID FROM doc_info WHERE writer=?";
+	db.query(queryData,[nickname],(err, rows)=>{
 		if(err){
 			console.log(err);
 		}

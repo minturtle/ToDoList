@@ -90,7 +90,7 @@ router.get('/see', (req,res)=>{
 })
 
 //정보 일부 수정
-router.put('/revice', (req,res)=>{
+router.patch('/revice', (req,res)=>{
 	var queryData = "SELECT * FROM user_info WHERE userID=?";
 	var userid = req.query.id;
 	if(userid==null){
@@ -120,7 +120,7 @@ router.put('/revice', (req,res)=>{
 						res.sendStatus(500);
 					}
 					else{
-						res.sendStatus(200);
+						res.redirect('/');
 					}
 					
 				})
