@@ -28,6 +28,7 @@ router.post('/',(req, res)=>{
 						console.log(err);
 					}
 					else{
+						//만약 제목이 같다면 데이터베이스에 저장하지 않고 바로 응답
 						if(rows.length){
 							res.send({docID :null, message:"이미 같은 글을 작성하셨습니다!!"});
 						}

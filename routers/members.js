@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const pw = require('../secret/passwords.js');
-
+const path = require('path');
 const router = express.Router();
 
 const db = mysql.createConnection({
@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 
 //register form
 router.get('/', (req,res)=>{
-	res.send('test');
+	res.sendFile(path.join(__dirname, '../public/register.html'));
 })
 
 //register
@@ -28,7 +28,7 @@ router.post('/register', (req,res)=>{
 		}
 		else{
 			if(rows.length){
-				res.send("이미 존재하는 아이디입니다.");
+				res.send({msg : "이미 존재하는 아이디입니다."});
 			}
 			else{
 				//아이디가 존재하지 않는다면 회원가입
