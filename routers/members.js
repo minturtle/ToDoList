@@ -44,7 +44,7 @@ router.post('/register', (req,res)=>{
 					console.log(err);
 				}
 				else{
-					res.send("회원가입 성공하셨습니다!");
+					res.redirect('/');
 				}
 	})
 			}
