@@ -15,24 +15,51 @@ const db = mysql.createConnection({
 
 //글 작성
 router.post('/',(req, res)=>{
-	if(true){
+	if(req.body){
 		var doc = {
 		title : req.body.title,
-		desc : req.body.desc, //description
-		writer: req.body.writer
-	}
-	var queryData = "INSERT INTO doc_info(title, writer) VALUES (?,?)";
-	db.query(queryData, [doc.title, doc.writer],
-		(err, rows)=>{
-			if(err){
-				console.log(err);
-			}
-			else{
-				res.sendStatus(200);
-			}
+		writer: req.user
+		}
+		
+	var queryData = "SELECT docID FROM doc_info WHERE title=? AND writer=?;";	
+				//제목이 같은 글을 작성했는지 조회한다
+				db.query(queryData, [doc.title, doc.writer],(err,rows)=>{
+					if(err){
+						console.log(err);
+					}
+					else{
+						if(rows.length){
+							res.send({docID :null, message:"이미 같은 글을 작성하셨습니다!!"});
+						}
+						else{
+							//데이터를 인서트한다
+				 queryData = "INSERT INTO doc_info(title, writer) VALUES (?,?)";
+				db.query(queryData, [doc.title, doc.writer],
+					(err, rows)=>{
+						if(err){
+							console.log(err);
+						}
+						else{
+							queryData = "SELECT docID FROM doc_info WHERE title=? AND writer=?;";	
+							//인서트한 데이터의 docID를 구해 보내준다
+							db.query(queryData, [doc.title, doc.writer],(err,rows)=>{
+								if(err){
+									console.log(err);
+								}
+								else{
+									res.send({docID :rows[0].docID, message:null});
+								}
+							})	
+						}
 		
 	})
+						}
+					}
+				})	
+			
+		
 	}
+
 	else{
 		res.sendStatus(404);
 	}

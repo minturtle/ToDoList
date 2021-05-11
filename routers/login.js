@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const pw = require('../secret/passwords.js');
-
+const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -58,7 +58,7 @@ passport.use('local-join', new LocalStrategy({usernameField: 'id', passwordField
 
 //login form
 router.get('/', (req,res)=>{
-	res.send('<<login form>>');
+	res.sendFile(path.join(__dirname, '../public/login.html'));
 })
 
 
@@ -70,7 +70,7 @@ router.post('/locallogin', passport.authenticate('local-join',
 ));
 
 //logout
-router.post('/logout', function(req, res){
+router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });

@@ -44,7 +44,12 @@ app.use('/login', loginRouter);
 app.use('/posting', docuRouter);
 
 app.get('/', (req,res)=>{
-	res.send('main_page');
+	if(req.user){
+		res.sendFile(path.join(__dirname, './public/indexLogin.html'));
+	}
+	else{
+		res.sendFile(path.join(__dirname, './public/indexNotLogin.html'));
+	}
 })
 
 app.listen(portNum, ()=>{
