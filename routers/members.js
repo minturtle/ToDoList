@@ -55,9 +55,9 @@ router.post('/register', (req,res)=>{
 
 //정보 조회 url query에서 id를 받아옴
 router.get('/see', (req,res)=>{
-	var userID = req.query.id||null;
+	var userID = req.query.id;
 	var queryData = "SELECT userID, nickname,email,name,age FROM user_info WHERE userID = ?";
-	if(userID == null){
+	if(userID == undefined){
 		res.sendStatus(404);
 	}
 	else{
@@ -75,13 +75,16 @@ router.get('/see', (req,res)=>{
 				name: rows[0].name,
 				age : rows[0].age
 				}
+			}
+			else{
+				var User = {
+				id : null
+				}
+			}
+			
 				var strUser = JSON.stringify(User);
 			
 				res.send(strUser);	
-			}
-			else{
-				res.send("계정을 찾을 수 없습니다.");
-			}
 		}
 		
 	})

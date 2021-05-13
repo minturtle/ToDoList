@@ -38,13 +38,17 @@
 			</h2>	
 		</div>
 		<form action = "https://todolist-jfslj.run.goorm.io/members/register" method = "post">
+		<div id = "idMsg">	
+		</div>
+		<div class="input-group mb-3" style ="margin-bottom:0;">
+			  <span class="input-group-text" id="basic-addon1">@</span>
+			  <input type="text" class="form-control" placeholder="UserID" aria-label="Username" aria-describedby="basic-addon1" name ='id' id = "formID">
+		</div>
+		<div id = "pwMsg">	
+		</div>
 		<div class="input-group mb-3">
 			  <span class="input-group-text" id="basic-addon1">@</span>
-			  <input type="text" class="form-control" placeholder="UserID" aria-label="Username" aria-describedby="basic-addon1" name ='id'>
-		</div>	
-		<div class="input-group mb-3">
-			  <span class="input-group-text" id="basic-addon1">@</span>
-			  <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name ='pw'>
+			  <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" name ='pw' id = "formPW">
 		</div>
 		<div class="input-group mb-3">
 			  <span class="input-group-text" id="basic-addon1">@</span>
@@ -67,4 +71,5 @@
   		
 		</div>
 	</main>
+	<script src="./registerscript.js"></script>
 </body>
