@@ -1,0 +1,12 @@
+user_info
+    -> userID VARCHAR(20) NOT NULL,
+    -> password VARCHAR(30) NOT NULL,
+    -> nickname VARCHAR(20) NOT NULL,
+    -> email VARCHAR(30) NOT NULL,
+    -> name VARCHAR(20),
+    -> age INT
+	
+doc_info
+ 	-> title VARCHAR(30) NOT NULL,
+    -> writer VARCHAR(20) NOT NULL,
+    -> docID INT PRIMARY KEY AUTO_INCREMENT
