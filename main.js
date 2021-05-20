@@ -8,7 +8,7 @@ const passport = require('passport');
 
 const portNum = process.env.PORT||80;
 
-const pw = require('./secret/passwords');
+const pw = require('./pw');
 
 const membersRouter = require('./routers/members');
 const loginRouter = require('./routers/login');

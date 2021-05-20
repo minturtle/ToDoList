@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
-const pw = require('../secret/passwords.js');
+const pw = require('../pw');
 const path = require('path');
 const router = express.Router();
 
