@@ -6,7 +6,7 @@ const mysqlStore = require('express-mysql-session')(session);
 const passport = require('passport');
 
 
-const portNum = process.env.PORT||3000;
+const portNum = process.env.PORT||80;
 
 const pw = require('./secret/passwords');
 
