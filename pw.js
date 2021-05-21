@@ -8,7 +8,7 @@ if(process.env.NODE_ENV === 'production'){
 	sessky = process.env.SESSION_KEY;
 }
 else{
-	const pwObj = require('./secret/dev.js');
+	const pwObj = require('./config/dev.js');
 	dbpw = pwObj.databasePassword;
 	sessky = pwObj.sessionKey;
 }
