@@ -6,9 +6,9 @@ const mysqlStore = require('express-mysql-session')(session);
 const passport = require('passport');
 
 
-const portNum = 3000;
+const portNum = process.env.PORT||80;
 
-const pw = require('./secret/passwords');
+const pw = require('./pw');
 
 const membersRouter = require('./routers/members');
 const loginRouter = require('./routers/login');
@@ -53,5 +53,5 @@ app.get('/', (req,res)=>{
 })
 
 app.listen(portNum, ()=>{
-	console.log('server is running..');
+	console.log('server is running.. at ' + portNum);
 })
