@@ -16,7 +16,7 @@ window.onload = function(){
 
 //사이트가 처음 실행될때 데이터를 불러오는 함수
 var siteInit = async function(){
-	var result = await fetch('https://todolist-jfslj.run.goorm.io/posting/lists')
+	var result = await fetch('/lists')
   .then(function(response) {
     return response.json();
   })
@@ -25,7 +25,7 @@ var siteInit = async function(){
 }
 //TODO를 삭제하는 요청을 보내는함수
 var delToDo = async function(docID){
-	var url = 'https://todolist-jfslj.run.goorm.io/posting/deletedoc';
+	var url = '/posting/deletedoc';
 	var result = await fetch(url, {
 		method : "DELETE",
 		headers: {
