@@ -59,7 +59,7 @@ var delError = function(){
 
 //database에 글을 저장하고 docID를 받아옴
 var postNewToDo = async function(title){
-	var result = await fetch('https://todolist-jfslj.run.goorm.io/posting',{
+	var result = await fetch('/posting',{
 		method: 'POST',
 		headers : {
 			'Content-Type': 'application/json'
