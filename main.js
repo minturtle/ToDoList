@@ -15,7 +15,7 @@ const loginRouter = require('./routers/login');
 const docuRouter = require('./routers/documents');
 
 const app = express();
-console.log(pw);
+
 var sessionStore = new mysqlStore({
 	host: pw.databaseHost,
 	port: 3306,

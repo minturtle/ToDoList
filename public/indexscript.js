@@ -16,7 +16,7 @@ window.onload = function(){
 
 //사이트가 처음 실행될때 데이터를 불러오는 함수
 var siteInit = async function(){
-	var result = await fetch('/lists')
+	var result = await fetch('/posting/lists')
   .then(function(response) {
     return response.json();
   })
