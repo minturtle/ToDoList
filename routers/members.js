@@ -5,10 +5,10 @@ const path = require('path');
 const router = express.Router();
 
 const db = mysql.createConnection({
-	host: 'localhost',
-	user:'root',
+	host: pw.databaseHost,
+	user:pw.databaseUser,
 	password: pw.databasePassword,
-	database: 'mydb'
+	database: pw.myDatabaseName
 });
 
 //register form

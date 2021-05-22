@@ -15,13 +15,13 @@ const loginRouter = require('./routers/login');
 const docuRouter = require('./routers/documents');
 
 const app = express();
-
+console.log(pw);
 var sessionStore = new mysqlStore({
-	host:'localhost',
-	port:3306,
-	user:'root',
-	password:  pw.databasePassword,
-	database: 'session_store'
+	host: pw.databaseHost,
+	port: 3306,
+	user: pw.databaseUser,
+	password: pw.databasePassword,
+	database: pw.sessionDatabaseName
 })
 
 app.use(session({
@@ -30,7 +30,8 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true	
 }))
-
+/*mysql://bddf1b9ad1fe87:b53d4776@us-cdbr-east-03.cleardb
+.com/heroku_b7514d9e1c820d0?reconnect=true*/
 app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(passport.session());
